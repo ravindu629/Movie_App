@@ -10,12 +10,9 @@ app.use(cors());
 app.use(express.json());
 
 const port = process.env.PORT || 5000;
-//const uri = process.env.MONGO_URI;
+const uri = process.env.MONGO_URI;
 
-mongoose.connect(
-  "mongodb+srv://admin-ravindu:IT19208022@cluster0.n8e35.mongodb.net/MOVIE_DB?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once("open", () => {
   console.log("MongoDB Connected");
 });

@@ -21,7 +21,7 @@ export default function HandleSystem() {
       <div className="navItem">
         <a href="/payments">
           <button type="button" className="btn btn-secondary menuBtn">
-            Manage payments
+            View payments
           </button>
         </a>
       </div>
