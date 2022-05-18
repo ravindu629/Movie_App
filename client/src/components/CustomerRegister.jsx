@@ -18,7 +18,7 @@ function CustomerRegister() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/customers", customer)
+      .post("/api/customers", customer)
       .then(() => {
         alert("successfully registerd");
         navigate("/");
