@@ -17,10 +17,6 @@ mongoose.connection.once("open", () => {
   console.log("MongoDB Connected");
 });
 
-app.get("/", (req, res) => {
-  res.send("<h3>Movie API 🚀</h3>");
-});
-
 app.use("/api/movies", require("./routes/Movie.route"));
 app.use("/api/admin", require("./routes/Admin.route"));
 app.use("/api/customers", require("./routes/Customer.route"));
