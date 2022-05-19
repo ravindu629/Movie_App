@@ -1,7 +1,9 @@
 const Admin = require("../models/Admin.model");
+const md5 = require("md5");
 
 const addAdmin = (req, res) => {
-  const { fName, lName, companyId, nic, email, password } = req.body;
+  const { fName, lName, companyId, nic, email } = req.body;
+  const password = md5(req.body.password);
 
   const admin = new Admin({
     fName,
@@ -88,7 +90,7 @@ const removeAdmin = async (req, res) => {
 
 const validateAdmin = async (req, res) => {
   const mail = req.body.email;
-  const pass = req.body.password;
+  const pass = md5(req.body.password);
 
   try {
     const foundUser = await Admin.findOne({ email: mail });

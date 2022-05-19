@@ -1,7 +1,9 @@
 const Customer = require("../models/Customer.model");
+const md5 = require("md5");
 
 const addCustomer = (req, res) => {
-  const { fName, lName, phone, email, password } = req.body;
+  const { fName, lName, phone, email } = req.body;
+  const password = md5(req.body.password);
 
   const customer = new Customer({
     fName,
@@ -86,7 +88,7 @@ const removeCustomer = async (req, res) => {
 
 const validateCustomer = async (req, res) => {
   const mail = req.body.email;
-  const pass = req.body.password;
+  const pass = md5(req.body.password);
 
   try {
     const foundUser = await Customer.findOne({ email: mail });

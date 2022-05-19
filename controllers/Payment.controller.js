@@ -21,6 +21,7 @@ const addPayment = (req, res) => {
       res.status(400).json(error);
     });
 
+  //send email to relevant customer
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
